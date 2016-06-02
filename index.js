@@ -77,7 +77,7 @@ function proxy(req, res, next, settings) {
     });
 
     if (options.method !== 'GET') {
-        var data = req.body;
+        var data = req.body || req.query;
 
         if (typeof settings.dataMapper === 'function') {
             data = settings.dataMapper(data, req);
