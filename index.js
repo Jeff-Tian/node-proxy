@@ -44,18 +44,18 @@ function proxy(req, res, next, settings) {
     };
 
     var request = http.request(options, function (response) {
-        if (settings.chunks instanceof Array) {
-            settings.chunks = [];
+        if (settings.continueNext) {
+            var chunks = [];
 
             response.on('data', function (c) {
-                settings.chunks.push(c);
+                chunks.push(c);
             });
 
             response.on('end', function () {
                 try {
-                    settings.chunks = Buffer.concat(settings.chunks);
+                    chunks = Buffer.concat(chunks);
 
-                    req.proxyData = settings.chunks;
+                    req[settings.dataFieldName || 'proxyData'] = chunks;
 
                     next();
                 } catch (ex) {
