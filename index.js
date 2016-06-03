@@ -55,7 +55,7 @@ function proxy(req, res, next, settings) {
                 try {
                     chunks = Buffer.concat(chunks);
 
-                    req[settings.dataFieldName || 'proxyData'] = chunks;
+                    req[settings.dataFieldName || 'upstreamData'] = chunks;
 
                     next();
                 } catch (ex) {
