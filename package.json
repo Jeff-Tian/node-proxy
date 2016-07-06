@@ -1,5 +1,5 @@
 {
-  "name": "proxy",
+  "name": "node-service-proxy",
   "version": "1.0.0",
   "scripts": {
     "start": "node ./bin/www"
