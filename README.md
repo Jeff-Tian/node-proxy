@@ -3,7 +3,7 @@ proxy request
 
 # Install
 ```
-npm install https://github.com/Jeff-Tian/node-proxy.git --save
+npm install node-service-proxy --save
 ```
 
 # Usage
